@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/api/api"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "你好，小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#0099CC",
+    "backgroundColor": "#996699",
+    "position": "bottom",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "API",
+        "pagePath": "pages/api/api"
+      }
+    ]
+  },
+  "debug": true,
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}
