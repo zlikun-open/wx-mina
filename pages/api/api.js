@@ -59,6 +59,44 @@ Page({
   },
 
   /**
+   * 获取用户信息（验证签名）
+   */
+  doGetUserInfo: function(e) {
+    var token = wx.getStorageSync('token')
+    wx.getUserInfo({
+      success: res => {
+        // rawData    "{"nickName":"张立坤","gender":1,...}"
+        // signature  "1ee56bd158059c2d645779cb8a73dd3a341d45a6"
+        // iv         "9dRsa0fxixoxtwr0OwHsSA=="
+        console.log(res)
+        // 执行验签，需要注意session_key有时效性，完整程序应验证其有效性（根据实际需求制定验证策略）
+        // https://developers.weixin.qq.com/miniprogram/dev/api/signature.html
+        wx.request({
+          url: app.getDevServiceApi('/mina/verify_signature'),
+          data: {
+            token: token,
+            signature: res.signature,
+            userRawInfo: res.rawData
+          },
+          // post请求时需要下面的header，否则后端无法接收到请求参数
+          method: "post",
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: res => {
+            console.log("verify_signature", res)
+            if (res.data) {
+              this.setData({
+                verifySignatureResult: "验证签名成功"
+              })
+            }
+          }
+        })
+      }
+    })
+  },
+
+  /**
    * 并非微信API，仅用于测试登录后的业务API
    */
   doLogic: function(e) {

@@ -8,6 +8,14 @@
     <view>{{logicApiResult}}</view>
   </view>
   <view>
+    <button open-type="getUserInfo" bindgetuserinfo="doGetUserInfo">获取用户信息（需登录）</button>
+    <view>
+      <open-data type="userAvatarUrl"></open-data>
+      <open-data type="userNickName"></open-data>
+      <view>{{verifySignatureResult}}</view>
+    </view>
+  </view>
+  <view>
     <button bindtap='doPay'>支付API</button>
     <view>{{paymentApiResult}}</view>
   </view>
