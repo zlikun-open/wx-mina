@@ -1,2 +1,14 @@
-<!--pages/api/api.wxml-->
-<text>pages/api/api.wxml</text>
+<view class="container">
+  <view>
+    <button bindtap='doLogin'>登录API</button>
+    <view>{{loginApiResult}}</view>
+  </view>
+  <view>
+    <button bindtap='doLogic'>业务API（需登录）</button>
+    <view>{{logicApiResult}}</view>
+  </view>
+  <view>
+    <button bindtap='doPay'>支付API</button>
+    <view>{{paymentApiResult}}</view>
+  </view>
+</view>

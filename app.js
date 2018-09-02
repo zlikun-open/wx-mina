@@ -2,11 +2,16 @@
 // https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/app.html
 
 
+// 开发者服务协议
+var devServiceProtocol = "http"
+// 开发者服务主机（域）名
+var devServiceHost = "wx.zlikun.com"
+
 App({
   /**
    * 变局变量
    */
-  globals : {
+  globals: {
 
   },
   onLaunch: function(obj) {
@@ -29,5 +34,11 @@ App({
    */
   anyLog: function(id, message, args) {
     console.log('app - %d - %s', id, message, args)
+  },
+  /**
+   * 返回开发者服务API
+   */
+  getDevServiceApi: function(path) {
+    return devServiceProtocol + "://" + devServiceHost + path
   }
 })
