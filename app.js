@@ -3,6 +3,12 @@
 
 
 App({
+  /**
+   * 变局变量
+   */
+  globals : {
+
+  },
   onLaunch: function(obj) {
     this.anyLog(1, "小程序初始化完成时执行", obj)
   },
