@@ -124,6 +124,19 @@ Page({
 
   doPay: function(e) {
     // console.log('payment', e)
+
+    wx.requestPayment({
+      timeStamp: '', // 当前时间戳（秒级）
+      nonceStr: 'zlikun', // 随机字符串，长度为32个字符以下
+      package: 'prepay_id=1024', // 统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=***
+      signType: 'MD5', // 签名算法，暂支持 MD5
+      paySign: '', // 签名,具体签名方案参见：https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_7&index=3
+      success: res => {
+        // 略，专门弄一个页面来测试支付
+        console.log('payment', res)
+      }
+    })
+
   }
 
 })

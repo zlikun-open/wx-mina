@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/pay/pay",
     "pages/api/api",
     "pages/index/index"
   ],
@@ -22,6 +23,10 @@
       {
         "text": "API",
         "pagePath": "pages/api/api"
+      },
+      {
+        "text": "支付",
+        "pagePath": "pages/pay/pay"
       }
     ]
   },
